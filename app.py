@@ -387,8 +387,7 @@ non_paid["Total_Due"] = (
 )
 
 
-
-st.dataframe(
+st.data_editor(
     non_paid[
         [
             "lakk",
@@ -399,12 +398,10 @@ st.dataframe(
             "Total_Due"
         ]
     ],
-    use_container_width=True
+    use_container_width=True,
+    height=450,
+    disabled=True
 )
-
-
-
-st.divider()
 
 
 

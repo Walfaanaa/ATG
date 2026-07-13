@@ -67,7 +67,7 @@ st.markdown(
 # SETTINGS
 # ==========================
 MONTHLY_PAYMENT = 200
-PENALTY = MONTHLY_PAYMENT * 0.5
+PENALTY = MONTHLY_PAYMENT * 0.25
 
 
 # ==========================

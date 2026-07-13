@@ -398,7 +398,7 @@ st.dataframe(
         ]
     ],
     use_container_width=True,
-    height=450
+    height=300
 )
 
 # ==========================

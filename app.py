@@ -1,12 +1,71 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import streamlit as st
-import streamlit as st
 
+# ==========================
+# PAGE CONFIG
+# ==========================
+st.set_page_config(
+    page_title="ATG Management System",
+    layout="wide"
+)
+
+# ==========================
+# STYLE
+# ==========================
+st.markdown("""
+<style>
+
+/* Main background */
+.stApp {
+    background-color: white;
+}
+
+/* Make all text black */
+html, body, p, span, div, label {
+    color: black !important;
+}
+
+/* Markdown text */
+[data-testid="stMarkdownContainer"] {
+    color: black !important;
+}
+
+/* Metric labels */
+[data-testid="stMetricLabel"] {
+    color: black !important;
+    font-weight: bold;
+}
+
+/* Metric values */
+[data-testid="stMetricValue"] {
+    color: #006400 !important;
+    font-weight: bold;
+}
+
+/* DataFrame */
+[data-testid="stDataFrame"] {
+    color: black !important;
+}
+
+/* Tables */
+table {
+    color: black !important;
+}
+
+/* Subheaders */
+h2, h3 {
+    color: #006400 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# ==========================
+# LOGO
+# ==========================
 LOGO_URL = "https://raw.githubusercontent.com/Walfaanaa/ATG/main/ATG.jpg"
 
-# Center the logo
 col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
@@ -49,7 +108,6 @@ df.columns = (
               .str.replace("`", "")
 )
 
-# Expected columns
 required = [
     "lakk",
     "maqaa",
@@ -109,6 +167,8 @@ c4.metric("Waliigala Maallaqa guuramee", f"{total_collected:,.0f} ETB")
 c5.metric("Waliigala maallaqa adabbiirraa argamee", f"{total_penalty:,.0f} ETB")
 
 st.divider()
+
+# ==========================
 # NON-PAID MEMBERS
 # ==========================
 st.subheader("Miseensota Buusii Ji`a Kanaa hin kanfaliin.")

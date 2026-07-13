@@ -386,8 +386,7 @@ non_paid["Total_Due"] = (
     non_paid["Penalty"]
 )
 
-
-st.data_editor(
+st.dataframe(
     non_paid[
         [
             "lakk",
@@ -399,11 +398,8 @@ st.data_editor(
         ]
     ],
     use_container_width=True,
-    height=450,
-    disabled=True
+    height=450
 )
-
-
 
 # ==========================
 # FULL DATA

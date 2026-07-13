@@ -270,20 +270,22 @@ c1, c2, c3, c4, c5, c6 = st.columns(6)
 
 
 c1.metric(
-    "👥 Baayna Miseensotaa",
+    "👥 Baay`ina Miseensotaa",
     total_members
 )
 
 
 c2.metric(
-    "✅ Baayna Miseensota Kanfalanii",
+    "✅ Baay`ina Miseensota Kanfalanii",
     paid_members
 )
 
 
 c3.metric(
-    "❌ Baayna Miseensota Adabamanii",
-    unpaid_members
+    "❌ Baay`ina Miseensota Adabamanii",
+    unpaid_members,
+    delta=f"{unpaid_members} Members",
+    delta_color="inverse"   # Red when positive
 )
 
 

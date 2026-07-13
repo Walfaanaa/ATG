@@ -13,7 +13,7 @@ with col2:
     st.image(LOGO_URL, width=300)
 
 st.markdown(
-    "<h1 style='text-align:center; color:#006400;'>ATG Management System</h1>",
+    "<h1 style='text-align:center; color:#006400;'>Sirna to`annaa Buusii Afoosha Tokkummaa Gaalessaa</h1>",
     unsafe_allow_html=True
 )
 
@@ -100,17 +100,9 @@ total_collected = df["buusii_jiaa"].sum()
 
 total_penalty = df["Penalty"].sum()
 
-# ==========================
-# TITLE
-# ==========================
-st.title("📊 ATG Monthly Payment Dashboard")
-
-# ==========================
-# METRICS
-# ==========================
 c1, c2, c3, c4, c5, c6 = st.columns(6)
 
-c1.metric("👥 Total Members", total_members)
+c1.metric("👥 Baay`na Miseensotaa", total_members)
 c2.metric("✅ Paid", paid_members)
 c3.metric("❌ Not Paid", unpaid_members)
 c4.metric("💰 Collected", f"{total_collected:,.0f} ETB")
@@ -120,7 +112,7 @@ c6.metric("💵 Total Penalty", f"{total_penalty:,.0f} ETB")
 st.divider()
 # NON-PAID MEMBERS
 # ==========================
-st.subheader("❌ Members Who Have Not Completed Monthly Payment")
+st.subheader("Miseensota Buusii Ji`a Kanaa hin kanfaliin.")
 
 non_paid = df[df["buusii_jiaa"] < MONTHLY_PAYMENT].copy()
 

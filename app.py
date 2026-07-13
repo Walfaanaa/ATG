@@ -345,7 +345,7 @@ st.dataframe(
             "Penalty",
            "Total_Due"]],
     use_container_width=True,
-    height=100
+    height=150
 )
 # ==========================
 # FULL DATA

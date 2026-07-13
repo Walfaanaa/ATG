@@ -1,6 +1,11 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import streamlit as st
+
+LOGO_URL = "https://raw.githubusercontent.com/Walfaanaa/ATG/main/ATG.jpg"
+
+st.image(LOGO_URL, width=250)
 
 st.set_page_config(
     page_title="ATG Monthly Payment Dashboard",

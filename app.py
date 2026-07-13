@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-EXCEL_URL = "https://raw.githubusercontent.com/Walfaanaa/monthly-report/main/ATG.xlsx"
+EXCEL_URL = "https://github.com/Walfaanaa/ATG/tree/main/ATG.xlsx"
 
 df = pd.read_excel(EXCEL_URL)
 

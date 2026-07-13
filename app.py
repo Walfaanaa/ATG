@@ -106,7 +106,7 @@ with col2:
 
 
 st.markdown(
-    "<h1 style='text-align:center; color:#006400;'>Sirna to`annaa Buusii Afoosha Tokkummaa Gaalessaa</h1>",
+    "<h1 style='text-align:center; color:#006400;'>Sirna To`annaa Buusii Afoosha Tokkummaa Gaalessaa</h1>",
     unsafe_allow_html=True
 )
 
@@ -302,7 +302,7 @@ c2.metric(
 c3.metric(
     "❌ Baay`ina Miseensota Adabamanii",
     unpaid_members,
-    delta=f"{unpaid_members} Members",
+    delta=f"{unpaid_members} Miseenstota ji`a kana osoo hin kanfaliin hafan",
     delta_color="inverse"   # Red when positive
 )
 c4.metric(

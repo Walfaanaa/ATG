@@ -110,20 +110,15 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
 # ==========================
 # SETTINGS
 # ==========================
 MONTHLY_PAYMENT = 200
 PENALTY = MONTHLY_PAYMENT * 0.25
-
-
 # ==========================
 # LOAD EXCEL
 # ==========================
 EXCEL_URL = "https://raw.githubusercontent.com/Walfaanaa/ATG/main/ATG.xlsx"
-
-
 @st.cache_data
 def load_data():
     return pd.read_excel(
@@ -210,8 +205,6 @@ df.loc[
     "Penalty"
 ] = PENALTY
 
-
-
 # ==========================
 # FILTER
 # ==========================
@@ -238,9 +231,6 @@ with f2:
         "Guyyaa Buusi",
         value=df["guyyaa_buusi"].max().date()
     )
-
-
-
 # ==========================
 # DATE FILTER DATA
 # ==========================
@@ -258,9 +248,6 @@ if selected_id != "All":
 filtered_df = filtered_df[
     filtered_df["guyyaa_buusi"].dt.date == selected_date
 ]
-
-
-
 # ==========================
 # UNPAID CALCULATION
 # ==========================
@@ -278,17 +265,11 @@ if selected_id != "All":
 unpaid_df = unpaid_df[
     unpaid_df["buusii_jiaa"] < MONTHLY_PAYMENT
 ].copy()
-
-
 unpaid_members = len(unpaid_df)
-
-
 unpaid_amount = (
     MONTHLY_PAYMENT -
     unpaid_df["buusii_jiaa"]
 ).sum()
-
-
 
 # ==========================
 # KPI
@@ -300,34 +281,23 @@ total_members = len(filtered_df)+unpaid_members
 paid_members = (
     filtered_df["buusii_jiaa"] >= MONTHLY_PAYMENT
 ).sum()
-
-
 total_collected = filtered_df["buusii_jiaa"].sum()
-
-
 # Correct penalty calculation
 total_penalty = len(unpaid_df) * PENALTY
-
-
 
 # ==========================
 # KPI DISPLAY
 # ==========================
-
 c1, c2, c3, c4, c5, c6 = st.columns(6)
-
 
 c1.metric(
     "👥 Baay`ina Miseensotaa",
     total_members
 )
-
-
 c2.metric(
     "✅ Baay`ina Miseensota Kanfalanii",
     paid_members
 )
-
 
 c3.metric(
     "❌ Baay`ina Miseensota Adabamanii",
@@ -335,57 +305,36 @@ c3.metric(
     delta=f"{unpaid_members} Members",
     delta_color="inverse"   # Red when positive
 )
-
-
 c4.metric(
     "Waliigala Maallaqa guuramee",
     f"{total_collected:,.0f} ETB"
 )
-
-
 c5.metric(
     "Waliigala maallaqa adabbiirraa argamee",
     f"{total_penalty:,.0f} ETB"
 )
-
-
 c6.metric(
     "💸 Maallaqa Hin Kaffalamne",
     f"{unpaid_amount:,.0f} ETB"
 )
-
-
-
 st.divider()
-
-
 
 # ==========================
 # NON PAID MEMBERS
 # ==========================
-
 st.subheader(
     "Miseensota Buusii Ji`a Kanaa hin kanfaliin."
 )
-
-
 non_paid = unpaid_df.copy()
-
-
 non_paid["Remaining"] = (
     MONTHLY_PAYMENT -
     non_paid["buusii_jiaa"]
 )
-
-
 non_paid["Penalty"] = PENALTY
-
-
 non_paid["Total_Due"] = (
     non_paid["Remaining"] +
     non_paid["Penalty"]
 )
-
 st.dataframe(
     non_paid[
         [
@@ -394,20 +343,14 @@ st.dataframe(
             "buusii_jiaa",
             "Remaining",
             "Penalty",
-            "Total_Due"
-        ]
-    ],
+           "Total_Due"]],
     use_container_width=True,
-    height=300
+    height=100
 )
-
 # ==========================
 # FULL DATA
 # ==========================
-
 st.subheader("Tarree Miseensoota Waliigalaa")
-
-
 st.dataframe(
     filtered_df,
     use_container_width=True

@@ -362,24 +362,38 @@ st.dataframe(
 )
 
 
-
 # ======================================================
 # DOWNLOAD
 # ======================================================
 
+from io import BytesIO
 
-output = df_view.to_excel(
-    index=False,
+
+buffer = BytesIO()
+
+with pd.ExcelWriter(
+    buffer,
     engine="openpyxl"
-)
+) as writer:
+
+    df_view.to_excel(
+        writer,
+        index=False,
+        sheet_name="ATG_Report"
+    )
+
+
+buffer.seek(0)
 
 
 st.download_button(
 
-    "⬇️ Download Report",
+    label="⬇️ Download Report",
 
-    data=pd.ExcelWriter,
+    data=buffer,
 
-    file_name="ATG_Report.xlsx"
+    file_name="ATG_Report.xlsx",
+
+    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 
 )

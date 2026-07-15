@@ -97,7 +97,7 @@ h2, h3 {
 # ==========================
 # LOGO
 # ==========================
-LOGO_URL = "https://github.com/Walfaanaa/AL/tree/main/AO.jpg"
+LOGO_URL = "https://github.com/Walfaanaa/AL/AO.jpg"
 
 col1, col2, col3 = st.columns([1, 2, 1])
 

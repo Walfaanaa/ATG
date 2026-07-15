@@ -71,11 +71,9 @@ section[data-testid="stSidebar"]{
 </style>
 """, unsafe_allow_html=True)
 
-# ======================================================
 # LOGO
-# ======================================================
 
-LOGO_URL = https://github.com/Walfaanaa/AL/tree/main/AO.jpg
+LOGO_URL = "https://github.com/Walfaanaa/AL/tree/main/AO.jpg"
 
 c1,c2,c3 = st.columns([1,2,1])
 

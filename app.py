@@ -294,7 +294,10 @@ total_penalty=df_view["penalty"].sum()
 interest_from_bank=(total_loan+current_account_balance)-(total_payment+total_penalty)
 
 
-col1, col2, col3, col4, col5, col6,col7,col8 = st.columns(8)
+# Total Capital of Afoosha Ollaa
+total_capital=total_loan+current_account_balance
+
+col1, col2, col3, col4, col5, col6,col7,col8,col8 = st.columns(9)
 
 with col1:
     st.metric(
@@ -338,10 +341,16 @@ with col7:
         f"{total_penalty:,.2f}"
     )
 
-with col7:
+with col8:
     st.metric(
         "🏦 Total Interest from Bank",
         f"{interest_from_bank:,.2f}"
+    )
+
+with col9:
+    st.metric(
+        "🏦 Total Interest from Bank",
+        f"{total_capital:,.2f}"
     )
 # ======================================================
 # BAR CHART
@@ -360,7 +369,8 @@ chart_df = pd.DataFrame({
         "Total Incrued Cost Of AO",
         "Currect Balance Of AO on Account",
         "Total Penalty from Members",
-        "Total Interest from Bank"
+        "Total Interest from Bank",
+        "Total Capital of Afoosha Ollaa"
     ],
 
 
@@ -371,7 +381,8 @@ chart_df = pd.DataFrame({
         total_incrued_cost,
         current_account_balance,
         total_penalty,
-        interest_from_bank
+        interest_from_bank,
+        total_capital
     ]
 
 })
@@ -404,7 +415,9 @@ fig = px.bar(
 
         "Total penalty collected amount":"orange",
 
-        "Total Interest From Bank Amount":"gray"
+        "Total Interest From Bank Amount":"gray",
+
+        "Total Capital of Afoosha Ollaa":"indigo"
 
     }
 

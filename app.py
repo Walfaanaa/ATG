@@ -283,7 +283,7 @@ monthly = df_view["monthly_payment"].sum() - payment_1001
 
 additional = df_view["additional_payment"].sum()
 
-total_payment = df_view["total_payment"].sum() - payment_1001-df_view["incrued_cost"].sum()
+total_payment = df_view["total_payment"].sum() - payment_1001+df_view["incrued_cost"].sum()
 
 
 total_incrued_cost = df_view["incrued_cost"].sum()

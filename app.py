@@ -316,7 +316,7 @@ with col3:
 
 with col4:
     st.metric(
-        "✅ Total Capital of AO",
+        "✅ Total Collected from Members",
         f"{total_payment:,.2f}"
     )
 
@@ -356,7 +356,7 @@ chart_df = pd.DataFrame({
     "Type":[
         "Monthly Payment",
         "Additional Payment",
-        "Total Capital of AO",
+        "Total Collected from Members",
         "Total Incrued Cost Of AO",
         "Currect Balance Of AO on Account",
         "Total Penalty from Members",
@@ -396,7 +396,7 @@ fig = px.bar(
 
         "Additional Payment":"yellow",
 
-        "Total Capital of AO":"violet",
+        "Total Collected from Members":"violet",
         
         "Total Incrued Cost Of AO":"red",
         

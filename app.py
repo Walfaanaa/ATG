@@ -166,7 +166,8 @@ required_columns = [
     "monthly_payment",
     "additional_payment",
     "total_payment",
-    "loan"
+    "loan",
+    "incrued_cost"
 
 ]
 
@@ -205,7 +206,8 @@ money_columns = [
     "monthly_payment",
     "additional_payment",
     "total_payment",
-    "loan"
+    "loan",
+    "incrued_cost"
 
 ]
 
@@ -264,7 +266,17 @@ else:
 # KPI METRICS
 # ======================================================
 
-total_loan = df_view["loan"].sum()
+# Payments made by member with ID 1001
+payment_1001 = df_view.loc[
+    df_view["id_no"] == 1001,
+    "monthly_payment"
+].sum()
+
+# Current account balance for member 1001
+current_account_balance = payment_1001
+
+# Total Loan after deducting payments of member 1001
+total_loan = df_view["loan"].sum() - payment_1001
 
 monthly = df_view["monthly_payment"].sum()
 
@@ -272,47 +284,46 @@ additional = df_view["additional_payment"].sum()
 
 total_payment = df_view["total_payment"].sum()
 
+total_incrued_cost = df_view["incrued_cost"].sum()
 
-
-col1,col2,col3,col4 = st.columns(4)
-
-
+col1, col2, col3, col4, col5, col6 = st.columns(6)
 
 with col1:
-
     st.metric(
         "💰 Total Loan",
         f"{total_loan:,.2f}"
     )
 
-
-
 with col2:
-
     st.metric(
         "📅 Monthly Payment",
         f"{monthly:,.2f}"
     )
 
-
-
 with col3:
-
     st.metric(
         "➕ Additional Payment",
         f"{additional:,.2f}"
     )
 
-
-
 with col4:
-
     st.metric(
         "✅ Total Payment",
         f"{total_payment:,.2f}"
     )
 
+with col5:
+    st.metric(
+        "💵 Incurred Cost",
+        f"{total_incrued_cost:,.2f}"
+    )
 
+with col6:
+    st.metric(
+        "🏦 Current Account Balance",
+        f"{current_account_balance:,.2f}"
+    )
+    )
 
 # ======================================================
 # BAR CHART

@@ -151,7 +151,8 @@ df.columns = (
     .str.lower()
 )
 
-
+st.write("Columns in Excel:")
+st.write(df.columns.tolist())
 
 # ======================================================
 # REQUIRED COLUMNS

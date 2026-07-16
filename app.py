@@ -277,13 +277,13 @@ payment_1001 = df_view.loc[
 current_account_balance = payment_1001
 
 # Total Loan after deducting payments of member 1001
-total_loan = df_view["loan"].sum() - payment_1001
+total_loan = df_view["loan"].sum() 
 
-monthly = df_view["monthly_payment"].sum()
+monthly = df_view["monthly_payment"].sum() - payment_1001
 
 additional = df_view["additional_payment"].sum()
 
-total_payment = df_view["total_payment"].sum()
+total_payment = df_view["total_payment"].sum() - payment_1001
 
 total_incrued_cost = df_view["incrued_cost"].sum()
 

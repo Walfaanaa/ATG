@@ -319,7 +319,7 @@ with col5:
 
 with col6:
     st.metric(
-        "🏦 Current Account Balance",
+        "🏦 Current Balance on Account",
         f"{current_account_balance:,.2f}"
     )
     

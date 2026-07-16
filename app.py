@@ -359,7 +359,7 @@ chart_df = pd.DataFrame({
         total_payment,
         total_incrued_cost,
         current_account_balance,
-        total_Penalty
+        total_penalty
     ]
 
 })

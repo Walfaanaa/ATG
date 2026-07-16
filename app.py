@@ -165,7 +165,8 @@ required_columns = [
     "additional_payment",
     "total_payment",
     "loan",
-    "incrued_cost"
+    "incrued_cost",
+    "Penalty"
 
 ]
 
@@ -205,7 +206,8 @@ money_columns = [
     "additional_payment",
     "total_payment",
     "loan",
-    "incrued_cost"
+    "incrued_cost",
+    "Penalty"
 
 ]
 
@@ -284,8 +286,9 @@ total_payment = df_view["total_payment"].sum() - payment_1001+df_view["incrued_c
 
 
 total_incrued_cost = df_view["incrued_cost"].sum()
+total_Penalty=df_view["Penalty"].sum()
 
-col1, col2, col3, col4, col5, col6 = st.columns(6)
+col1, col2, col3, col4, col5, col6,col7 = st.columns(7)
 
 with col1:
     st.metric(
@@ -322,7 +325,12 @@ with col6:
         "🏦 Current Balance on Account",
         f"{current_account_balance:,.2f}"
     )
-    
+
+with col7:
+    st.metric(
+        "🏦 Total penalty from members",
+        f"{total_Penalty:,.2f}"
+    )
 
 # ======================================================
 # BAR CHART
@@ -339,7 +347,8 @@ chart_df = pd.DataFrame({
         "Additional Payment",
         "Total Capital of AO",
         "Total Incrued Cost Of AO",
-        "Currect Balance Of AO on Account"
+        "Currect Balance Of AO on Account",
+        "Total Penalty from Members"
     ],
 
 
@@ -348,7 +357,8 @@ chart_df = pd.DataFrame({
         additional,
         total_payment,
         total_incrued_cost,
-        current_account_balance
+        current_account_balance,
+        total_Penalty
     ]
 
 })
@@ -377,7 +387,9 @@ fig = px.bar(
         
         "Total Incrued Cost Of AO":"red",
         
-        "Currect Balance Of AO":"blue"
+        "Currect Balance Of AO":"blue",
+
+        "Total penalty collected amount":"Orange"
 
     }
 

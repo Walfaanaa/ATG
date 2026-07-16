@@ -323,7 +323,7 @@ with col6:
         "🏦 Current Account Balance",
         f"{current_account_balance:,.2f}"
     )
-    )
+    
 
 # ======================================================
 # BAR CHART
